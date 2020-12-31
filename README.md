@@ -5,7 +5,7 @@ It fits to _my_ needs and is not ment to be perfect. But all the time I struggle
 
 ## Content
 
-### Github action to install all dependencies and deploy files to a server
+### Github action to install all dependencies, generate assets and deploy files to a server
 - install all composer deps
 - install all npm deps
 - generate all assets (css/js)
