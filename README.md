@@ -1,7 +1,7 @@
 # kirby-cms-utils
 
 This repo is ment to store some helpers for the development with the [Kirby CMS](https://getkirby.com/).
-It fits to _my_ needs and is not ment to be perfect.
+It fits to _my_ needs and is not ment to be perfect. But all the time I struggle with the set-up and that's why I decided to start this repo.
 
 ## Content
 
