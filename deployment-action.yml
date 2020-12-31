@@ -1,0 +1,35 @@
+name: CI Deployment Preview
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Generate assets
+        uses: actions/setup-node@v2.1.4
+
+      - name: Install npm dependencies
+        run: yarn install
+
+      - name: Generate assets
+        run: yarn build
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete --exclude 'content' --exclude site/config --exclude 'node_modules' --exclude '.git' --exclude '.github' --exclude site/accounts --exclude 'media' --exclude 'SECURITY.md' --exclude 'yarn.lock' --exclude ' gulpfile.js' --exclude 'package.json' --exclude '.editorconfig' --exclude '.gitignore'
+          remote_path: /var/www/html
+          remote_host: remote.host
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
