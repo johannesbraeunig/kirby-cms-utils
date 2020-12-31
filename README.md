@@ -15,3 +15,7 @@ It fits to _my_ needs and is not ment to be perfect. But all the time I struggle
 - generate `*.scss` files to one single file for development
 - generate `*.scss` files to one single file and add a hash and generate a manifest file
 - default command to start the dev-mode incl. starting the php server
+
+### NGINX configuration
+- default config to run Kirby
+- _no_ SSL configuration included
